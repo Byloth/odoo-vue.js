@@ -12,7 +12,7 @@ Desktop.ini
 
 # Generated & compiled files
 #
-/dist/*
+/vue_js/static/*
 
 # Downloadable & installable modules & components
 #

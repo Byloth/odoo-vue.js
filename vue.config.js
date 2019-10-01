@@ -9,5 +9,7 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  outputDir: "./vue_js/static/src/",
+  publicPath: "/vue_js/static/src/"
 };
