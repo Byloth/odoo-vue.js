@@ -4,9 +4,12 @@ import Home from "./views/Home.vue";
 
 Vue.use(Router);
 
+const IS_PROD = (process.env.NODE_ENV === "production");
+const BASE_URL = IS_PROD ? "/vue.js" : process.env.BASE_URL;
+
 export default new Router({
   mode: "history",
-  base: "/vue.js/",
+  base: BASE_URL,
   routes: [
     {
       path: "/",

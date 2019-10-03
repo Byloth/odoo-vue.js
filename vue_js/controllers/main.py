@@ -6,7 +6,7 @@ INDEX_FILE = '../static/src/index.html'
 
 
 class MainController(Controller):
-    @route('/vue.js', auth='public', type='http')
+    @route('/vue.js/', auth='public', type='http')
     def home(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         file_name = os.path.realpath(os.path.join(dir_path, INDEX_FILE))
