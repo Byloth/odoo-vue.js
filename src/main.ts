@@ -5,6 +5,10 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+#
+# TODO: addons/web/static/src/js/core/rpc.js
+#
+
 new Vue({
   router,
   store,
