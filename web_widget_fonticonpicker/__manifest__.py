@@ -19,7 +19,7 @@
         "web"
     ],
     "data": [
-        'view/assets.xml'
+        'views/assets.xml'
     ],
     "qweb": [
         'static/src/xml/web_widget_fonticonpicker.xml',
