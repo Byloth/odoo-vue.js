@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <tr t-extend="ListView.row">
+        <t t-jquery="t td t[t-raw='render_cell(record, column)']" t-operation="replace">
+            <t t-if="column.widget =='fonticonbinder' || column.type == 'fonticonbinder'">
+                <div t-att-class="'fa fa-fw ' + render_cell(record, column)"/>
+            </t>
+            <t t-else="">
+                <t t-raw="render_cell(record, column)"/>
+            </t>
+        </t>
+    </tr>
+</templates>
