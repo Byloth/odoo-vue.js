@@ -17,11 +17,13 @@ Usage
 =====
 
 Declare a char field in your model file::
+
     ...
     icon = fields.Char(default="fa fa-money")
     ...
 
-And sets its view:
+And sets its view::
+
     ...
     <field name="arch" type="xml">
         <form>
