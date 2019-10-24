@@ -709,7 +709,6 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
     initialize_content: function() {
         if(!this.get('effective_readonly') && !this.$picker) {
             this.$picker = this.$el.find('.iconpicker-component');
-            // this.$picker = this.$el.find('.iconpicker-dropdown');
         }
         this.setupFocus(this.$el);
     },
@@ -726,9 +725,7 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
         return this._super();
     },
     render_value: function () {
-        var value = this.get('value');
-        this.$el.attr('title', value);
-        this.$el.find('i').attr('class', 'fa fa-fw ' + value);
+        let value = this.get('value');
         if (!this.get("effective_readonly")) {
 
             this.$picker.iconpicker({
@@ -751,7 +748,7 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
             // INFO: bootstrap 3.3.4 closes dropdown when clicked on search input field.
             //       Here is workaround to fix it.
             if ($.fn.dropdown.Constructor.VERSION < '3.3.5') {
-                $('.iconpicker-dropdown').on({
+                this.$el.on({
                     "click": function(event) {
                         if ($(event.target).closest('.dropdown-toggle').length) {
                             $(this).data('closable', true);
@@ -786,6 +783,11 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
                 // INFO: refresh widget.
                 iconpicker._updateComponents();
             });
+        }
+        else {
+            // INFO: read only widget.
+            this.$el.attr('title', value);
+            this.$el.find('i').attr('class', 'fa fa-fw ' + value);
         }
     },
     is_false: function() {
