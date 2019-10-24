@@ -3,7 +3,38 @@ odoo.define('web.web_widget_fonticonbinder', function(require) {
 
 var core = require('web.core');
 var common = require('web.form_common');
+var ListView = require('web.ListView');
 var Model = require('web.DataModel');
+var QWeb = core.qweb;
+
+var ColumnFontIconBinder = ListView.Column.extend({
+    _format: function (row_data, options) {
+        let self = this;
+        let value = row_data[this.id].value;
+
+        // INFO: in case we have to handle a Selection field value to show.
+        let value_selection = (this.type === 'selection') &&
+            _.find(this.selection, function (el) {
+                return el[0] === value;
+            });
+        value_selection = value_selection && value_selection[1];
+
+        let nid = options.model.replace('.', '_') + '_' + this.name + options.id;
+        return QWeb.render('FontIconBinder.cell', {
+            'id': nid,
+            '_render_cell': function() {
+                new Model('lp.fonticonbinder').call('search_icon_by_field', {
+                    model: options.model,
+                    field: self.name,
+                    value: value,
+                    value_selection: value_selection
+                }).then(function(result) {
+                    $('#' + nid).html(result);
+                });
+            },
+        });
+    }
+});
 
 var FontIconBinder = common.AbstractField.extend(common.ReinitializeFieldMixin, {
     start: function() {
@@ -38,6 +69,8 @@ var FontIconBinder = common.AbstractField.extend(common.ReinitializeFieldMixin, 
 });
 
 core.form_widget_registry.add('fonticonbinder', FontIconBinder);
+
+core.list_widget_registry.add('field.fonticonbinder', ColumnFontIconBinder);
 
 return {
     FontIconBinder: FontIconBinder
