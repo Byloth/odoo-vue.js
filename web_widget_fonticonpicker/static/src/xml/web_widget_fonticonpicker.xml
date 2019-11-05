@@ -4,7 +4,7 @@
         <span t-if="widget.get('effective_readonly')"><i class=""></i></span>
 
         <div class="btn-group dropdown iconpicker-dropdown" t-if="!widget.get('effective_readonly')">
-            <button type="button"
+            <button type="button" style="height:100%"
                 class="btn btn-info dropdown-toggle iconpicker-component"
                 data-toggle="dropdown">
                 <i></i>
