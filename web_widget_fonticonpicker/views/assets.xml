@@ -5,6 +5,9 @@
             <link rel="stylesheet" type="text/css" href="/web_widget_fonticonpicker/static/src/lib/fontawesome-iconpicker/css/fontawesome-iconpicker.min.css"/>
             <script type="text/javascript" src="/web_widget_fonticonpicker/static/src/lib/fontawesome-iconpicker/js/fontawesome-iconpicker.min.js"></script>
             <script type="text/javascript" src="/web_widget_fonticonpicker/static/src/js/widget.js"></script>
+            <style>
+                .btn-group.open .dropdown-toggle { background-color: #999 !important; }
+            </style>
         </xpath>
     </template>
 </odoo>
