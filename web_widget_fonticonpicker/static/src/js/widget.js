@@ -716,19 +716,19 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
         this.$picker = undefined;
     },
     store_dom_value: function() {
-        if (this.$picker) {
-            this.internal_set_value(this.$picker.data('iconpicker').iconpickerValue);
-        }
+        if (this.$picker)
+            this.internal_set_value(this.iconpicker.iconpickerValue);
     },
     commit_value: function () {
         this.store_dom_value();
         return this._super();
     },
     render_value: function () {
+        let self = this;
         let value = this.get('value');
         if (!this.get("effective_readonly")) {
 
-            this.$picker.iconpicker({
+            this.iconpicker = this.$picker.iconpicker({
                 selected: value,
                 icons: fa45,
                 fullClassFormatter: function(val) {
@@ -743,7 +743,7 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
                         '<button class="iconpicker-btn iconpicker-btn-clear btn btn-warning btn-sm" title=""><b class="fa fa-trash"></b></button>',
                     search: '<input type="search" class="form-control iconpicker-search" placeholder="Type to filter" />',
                 }
-            });
+            }).data('iconpicker');
 
             // INFO: bootstrap 3.3.4 closes dropdown when clicked on search input field.
             //       Here is workaround to fix it.
@@ -757,7 +757,7 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
                         }
                     },
                     "hide.bs.dropdown": function(event) {
-                        var hide = $(this).data('closable');
+                        let hide = $(this).data('closable');
                         $(this).data('closable', true);
                         return hide;
                     }
@@ -770,18 +770,18 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
             // INFO: pressing the cancel button (to fix cancel issue with fontawesome-iconpicker when dropdown).
             this.$el.on('click', '.iconpicker-btn-cancel', function () {
                 // INFO: reset to original value when pressed cancel button.
-                var iconpicker = $(this).parents('.iconpicker-dropdown').find('.iconpicker-component').data('iconpicker');
-                iconpicker.setValue(value);
+                // let iconpicker = $(this).parents('.iconpicker-dropdown').find('.iconpicker-component').data('iconpicker');
+                self.iconpicker.setValue(self.get('value'));
                 // INFO: refresh widget.
-                iconpicker._updateComponents();
+                self.iconpicker._updateComponents();
             });
             // INFO: pressing the clear button.
             this.$el.on('click', '.iconpicker-btn-clear', function () {
                 // INFO: invalidates iconpickerValue (there is no need to reset data-iconpickervalue).
-                var iconpicker = $(this).parents('.iconpicker-dropdown').find('.iconpicker-component').data('iconpicker');
-                iconpicker.setValue(false);
+                // var iconpicker = $(this).parents('.iconpicker-dropdown').find('.iconpicker-component').data('iconpicker');
+                self.iconpicker.setValue(false);
                 // INFO: refresh widget.
-                iconpicker._updateComponents();
+                self.iconpicker._updateComponents();
             });
         }
         else {
