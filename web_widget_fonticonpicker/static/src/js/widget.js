@@ -726,7 +726,14 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
     render_value: function () {
         let self = this;
         let value = this.get('value');
+
         if (!this.get("effective_readonly")) {
+
+            // INFO: destroys iconpicker if it already exists. Did like that to avoid misbehavior of the widget when
+            //       it is rendered in a listview: if widget has already been rendered then {..., selected: value ...}
+            //       below isn't computed by iconpicker constructor.
+            if (this.iconpicker)
+                this.iconpicker.destroy();
 
             this.iconpicker = this.$picker.iconpicker({
                 selected: value,
