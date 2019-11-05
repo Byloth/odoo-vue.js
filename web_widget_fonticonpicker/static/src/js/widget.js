@@ -701,8 +701,8 @@ var fa45 = [
     {title:"fa-youtube-square", searchTerms:["Youtube Square"]}
 ];
 
-var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMixin, {
-    template: 'FieldFontIconPicker',
+var FontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMixin, {
+    template: 'FontIconPicker',
     events: {
         'change': 'store_dom_value',
     },
@@ -812,9 +812,9 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
     },
 });
 
-core.form_widget_registry.add('fonticonpicker', FieldFontIconPicker);
+core.form_widget_registry.add('fonticonpicker', FontIconPicker);
 
 return {
-    FieldFontIconPicker: FieldFontIconPicker
+    FontIconPicker: FontIconPicker
 };
 });

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates>
-    <t t-name="FieldFontIconPicker">
+    <t t-name="FontIconPicker">
         <span t-if="widget.get('effective_readonly')"><i class=""></i></span>
 
         <div class="btn-group dropdown iconpicker-dropdown" t-if="!widget.get('effective_readonly')">
