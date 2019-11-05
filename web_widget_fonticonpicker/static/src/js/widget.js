@@ -750,6 +750,10 @@ var FieldFontIconPicker = common.AbstractField.extend(common.ReinitializeFieldMi
                         '<button class="iconpicker-btn iconpicker-btn-clear btn btn-warning btn-sm" title=""><b class="fa fa-trash"></b></button>',
                     search: '<input type="search" class="form-control iconpicker-search" placeholder="Type to filter" />',
                 }
+            })
+            .on( 'iconpickerSelected', function(e) {
+                self.iconpickerValue = e.iconpickerValue;
+                self.store_dom_value();
             }).data('iconpicker');
 
             // INFO: bootstrap 3.3.4 closes dropdown when clicked on search input field.
