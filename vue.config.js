@@ -12,6 +12,6 @@ module.exports = {
       }
     }
   },
-  outputDir: PATH.resolve(__dirname, "./vue_js/static/src"),
-  publicPath: IS_PROD ? "/vue_js/static/src/" : "/"
+  outputDir: PATH.resolve(__dirname, "./vuejs_example/static/src"),
+  publicPath: IS_PROD ? "/vuejs_example/static/src/" : "/"
 };

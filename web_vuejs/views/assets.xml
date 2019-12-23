@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="assets_backend" name="assets" inherit_id="web.assets_backend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/web_vuejs/static/src/js/vuejs_controller.js"></script>
+            <script type="text/javascript" src="/web_vuejs/static/src/js/vuejs_renderer.js"></script>
+            <script type="text/javascript" src="/web_vuejs/static/src/js/vuejs_view.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

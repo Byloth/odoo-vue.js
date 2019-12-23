@@ -7,20 +7,20 @@ Vue.config.productionTip = false;
 
 import axios from "axios";
 
-axios.post('/web/dataset/call_kw/res.partner/browse/', {
+axios.post("/web/dataset/call_kw/res.partner/browse/", {
     params: {
         args: [[1, 2, 3, 4], ["display_name"]],
         kwargs: {},
-        model: 'res.partner',
-        method: 'browse'
+        model: "res.partner",
+        method: "browse"
     }
 })
-.then(function(response)
-{
+.then((response) => {
+
     console.log(response);
 })
-.catch(function(error)
-{
+.catch((error) => {
+
     console.log(error);
 });
 
