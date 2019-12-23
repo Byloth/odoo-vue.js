@@ -4,3 +4,5 @@ __pycache__/
 .idea/
 .project
 .odoo
+
+/node_modules/

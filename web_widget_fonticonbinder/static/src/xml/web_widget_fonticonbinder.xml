@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates>
-    <t t-name="FontIconBinder.cell">
-        <span t-attf-id="{{id}}" class="fonticonbinder"><t t-esc="_render_cell(model + '.' + name + id or '')"/></span>
-    </t>
-</templates>
