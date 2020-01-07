@@ -12,7 +12,7 @@ Desktop.ini
 
 # Generated & compiled files
 #
-/vuejs_example/static/*
+/vuejs_example/static/src/*
 
 # Downloadable & installable modules & components
 #

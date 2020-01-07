@@ -3,6 +3,9 @@
 <odoo>
 
     <template id="assets_backend" name="assets" inherit_id="web.assets_backend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/web_vuejs/static/src/scss/style.scss" />
+        </xpath>
         <xpath expr="script[last()]" position="after">
             <script type="text/javascript" src="/web_vuejs/static/src/js/vuejs_controller.js"></script>
             <script type="text/javascript" src="/web_vuejs/static/src/js/vuejs_renderer.js"></script>

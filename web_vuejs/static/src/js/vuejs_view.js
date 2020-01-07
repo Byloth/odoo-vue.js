@@ -34,10 +34,6 @@ odoo.define("web_vuejs.VueJsView", function(require)
         {
             this._super.apply(this, arguments);
 
-            /*
-             * TODO: Use `this.arch`.
-             */
-
             console.debug("Called `init()` method on `VueJsView` object.");
         }
     });

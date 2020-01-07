@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="vuejs_example_view" model="ir.ui.view">
+        <field name="name">vuejs.example.view</field>
+        <field name="model">ir.sequence</field>
+        <field name="arch" type="xml">
+            <vuejs>
+                <path name="/vuejs_example/static/src/index.html" />
+            </vuejs>
+        </field>
+    </record>
+
+    <record id="vuejs_example_action" model="ir.actions.act_window">
+        <field name="name">Vue.js Application</field>
+        <field name="res_model">ir.sequence</field>
+        <field name="view_mode">vuejs</field>
+    </record>
+
+    <menuitem id="vuejs_example_menu"
+              action="vuejs_example_action"
+              web_icon="vuejs_example,static/description/icon.png"
+              name="Vue.js App"
+              sequence="255" />
+
+</odoo>

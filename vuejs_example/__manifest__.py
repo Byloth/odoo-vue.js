@@ -12,5 +12,7 @@
     'category': "Website",
     'version': '12.0.0.9.0',
 
-    'depends': ['web_vuejs']
+    'depends': ['web_vuejs'],
+
+    'data': ['views/examples.xml']
 }
